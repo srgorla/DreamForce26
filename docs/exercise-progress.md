@@ -19,7 +19,7 @@ Mark a task complete only after its result has been verified.
 | --- | --- | --- |
 | setup-01 | Obtain training org credentials | Already handled by user; existing CLI authentication used |
 | setup-02 | Log in to training org | Verified: authenticated Organization query succeeded |
-| ex1-task1 | Create Agentforce Service Assistant Library | Pending |
+| ex1-task1 | Create Agentforce Service Assistant Library | API configuration prepared; creation and readiness pending |
 | ex2-task1 | Enable Agentforce and Service Assistant | Pending |
 | ex2-task2 | Create Service Assistant agent | Pending |
 | ex2-task3 | Create Order Refund subagent; add General CRM and General FAQ | Pending |
@@ -46,6 +46,9 @@ The query returned one Organization record named `EPIC OrgFarm` with
 and data library readiness have not yet been verified.
 
 ## First task: create the data library
+
+For creation from source, use the [API configuration and commands](workshops/service-assistant-dynamic-plans/data-library.md).
+The manual Setup steps below are an alternative.
 
 In Setup, open **Agentforce Data Library**, choose **Add Data**, then
 **Add Knowledge Articles**. Configure:
