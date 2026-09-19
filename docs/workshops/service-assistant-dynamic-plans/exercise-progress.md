@@ -1,6 +1,6 @@
 # Agentforce Service Assistant (Dynamic Plans)
 
-[Exercise guide](https://docs.google.com/document/d/1FmP6Y8KLoneSdIXCTBbXXM08ZpWg7YeEPFZ7WDFQWPU/preview?tab=t.0)
+[Student and exercise guides](README.md#guides)
 
 Project target org: `DF26_Service_Cloud_Assistant_Dynamic_Plans`.
 
@@ -47,7 +47,7 @@ and data library readiness have not yet been verified.
 
 ## First task: create the data library
 
-For creation from source, use the [API configuration and commands](workshops/service-assistant-dynamic-plans/data-library.md).
+For creation from source, use the [API configuration and commands](data-library.md).
 The manual Setup steps below are an alternative.
 
 In Setup, open **Agentforce Data Library**, choose **Add Data**, then
