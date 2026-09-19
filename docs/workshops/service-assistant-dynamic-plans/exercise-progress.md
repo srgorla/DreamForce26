@@ -20,7 +20,7 @@ Mark a task complete only after its result has been verified.
 | setup-01 | Obtain training org credentials | Already handled by user; existing CLI authentication used |
 | setup-02 | Log in to training org | Verified: authenticated Organization query succeeded |
 | ex1-task1 | Create Agentforce Service Assistant Library | Created and configuration verified; provisioning IN_PROGRESS |
-| ex2-task1 | Enable Agentforce and Service Assistant | Pending |
+| ex2-task1 | Enable Agentforce and Service Assistant | Complete: Agentforce metadata verified; Service Assistant confirmed by user |
 | ex2-task2 | Create Service Assistant agent | Pending |
 | ex2-task3 | Create Order Refund subagent; add General CRM and General FAQ | Pending |
 | ex2-task4 | Connect data library, show sources, activate agent | Pending |
@@ -42,8 +42,7 @@ sf data query --target-org DF26_Service_Cloud_Assistant_Dynamic_Plans --query 'S
 ```
 
 The query returned one Organization record named `EPIC OrgFarm` with
-`IsSandbox = false`. No credentials or tokens were recorded. Exercise setup
-and data library readiness have not yet been verified.
+`IsSandbox = false`. No credentials or tokens were recorded.
 
 ### ex1-task1: create the data library
 
@@ -54,6 +53,22 @@ The response confirmed `Title` and `Summary` as identifying fields and
 `Answer__c`, `Detail__c`, `Question__c` as content fields, with no category or
 public-only restriction. A subsequent status request returned HTTP 200 and
 `IN_PROGRESS`. Creation is complete; `READY` must be verified before agent use.
+
+### ex2-task1: enable Agentforce and Service Assistant
+
+On 2026-09-19, the user confirmed completing both enablement steps in Salesforce
+Go. Retrieved `Settings:AgentPlatform` successfully from the training org:
+
+```sh
+sf project retrieve start --metadata Settings:AgentPlatform \
+  --target-org DF26_Service_Cloud_Assistant_Dynamic_Plans --json --wait 5
+```
+
+The retrieved [AgentPlatform settings](../../../force-app/main/default/settings/AgentPlatform.settings-meta.xml)
+contain `enableAgentPlatform=true`. Service Assistant's initial enablement is
+recorded based on the user's confirmation; it has not been independently
+verified through metadata or API. A Data Library status check during this task
+still returned `IN_PROGRESS`.
 
 ## First task: create the data library
 
