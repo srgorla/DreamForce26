@@ -17,8 +17,8 @@ Mark a task complete only after its result has been verified.
 
 | ID | Task | Status |
 | --- | --- | --- |
-| setup-01 | Obtain training org credentials | Not verified |
-| setup-02 | Log in to training org | Project alias configured; connection not verified |
+| setup-01 | Obtain training org credentials | Already handled by user; existing CLI authentication used |
+| setup-02 | Log in to training org | Verified: authenticated Organization query succeeded |
 | ex1-task1 | Create Agentforce Service Assistant Library | Pending |
 | ex2-task1 | Enable Agentforce and Service Assistant | Pending |
 | ex2-task2 | Create Service Assistant agent | Pending |
@@ -33,7 +33,17 @@ Mark a task complete only after its result has been verified.
 
 ## Validation notes
 
-No exercise tasks have been verified yet.
+### setup-02: verify existing login
+
+On 2026-09-19, the following read-only query succeeded against the project target:
+
+```sh
+sf data query --target-org DF26_Service_Cloud_Assistant_Dynamic_Plans --query 'SELECT Id, Name, IsSandbox FROM Organization' --json
+```
+
+The query returned one Organization record named `EPIC OrgFarm` with
+`IsSandbox = false`. No credentials or tokens were recorded. Exercise setup
+and data library readiness have not yet been verified.
 
 ## First task: create the data library
 
