@@ -21,7 +21,7 @@ Mark a task complete only after its result has been verified.
 | setup-02 | Log in to training org | Verified: authenticated Organization query succeeded |
 | ex1-task1 | Create Agentforce Service Assistant Library | Created and configuration verified; provisioning IN_PROGRESS |
 | ex2-task1 | Enable Agentforce and Service Assistant | Complete: Agentforce metadata verified; Service Assistant confirmed by user |
-| ex2-task2 | Create Service Assistant agent | Pending |
+| ex2-task2 | Create Service Assistant agent | Complete: ServicePlanner type verified; Bot, version, and planner retrieved |
 | ex2-task3 | Create Order Refund subagent; add General CRM and General FAQ | Pending |
 | ex2-task4 | Connect data library, show sources, activate agent | Pending |
 | ex2-task5 | Configure Service AI Grounding | Pending |
@@ -69,6 +69,27 @@ contain `enableAgentPlatform=true`. Service Assistant's initial enablement is
 recorded based on the user's confirmation; it has not been independently
 verified through metadata or API. A Data Library status check during this task
 still returned `IN_PROGRESS`.
+
+### ex2-task2: create the Service Assistant agent
+
+On 2026-09-19, the user created the agent in the org. Verified its BotDefinition
+and retrieved its Bot, BotVersion v1, and GenAiPlannerBundle with action schemas.
+
+- Label: `Agentforce Service Assistant`
+- API name: `Coral_CloudAgentforce_Service_Assistant`
+- Agent type: `ServicePlanner`
+- Actual template: `service_planner_agent__ServicePlanner`
+- Company as saved in the org: `Coral Cloud.`
+- Role: An AI service agent whose job is to provide customer service agents a
+  list of suggested steps to help resolve a case.
+- `logPrivateConversationData`: `false`
+
+The actual template differs from the earlier wizard URL's mode identifier.
+The aggregate `Agent:` retrieval failed with a Salesforce `UNKNOWN_EXCEPTION`;
+targeted `Bot:` and `GenAiPlannerBundle:` retrievals both succeeded. The snapshot
+retains the generated org-specific bot user reference. XML and JSON files were
+parsed locally; cross-org deployment has not been tested. This task did not
+activate the agent or configure the Task 3 subagents.
 
 ## First task: create the data library
 
