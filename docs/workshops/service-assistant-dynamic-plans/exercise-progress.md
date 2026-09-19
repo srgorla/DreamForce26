@@ -19,7 +19,7 @@ Mark a task complete only after its result has been verified.
 | --- | --- | --- |
 | setup-01 | Obtain training org credentials | Already handled by user; existing CLI authentication used |
 | setup-02 | Log in to training org | Verified: authenticated Organization query succeeded |
-| ex1-task1 | Create Agentforce Service Assistant Library | API configuration prepared; creation and readiness pending |
+| ex1-task1 | Create Agentforce Service Assistant Library | Created and configuration verified; provisioning IN_PROGRESS |
 | ex2-task1 | Enable Agentforce and Service Assistant | Pending |
 | ex2-task2 | Create Service Assistant agent | Pending |
 | ex2-task3 | Create Order Refund subagent; add General CRM and General FAQ | Pending |
@@ -44,6 +44,16 @@ sf data query --target-org DF26_Service_Cloud_Assistant_Dynamic_Plans --query 'S
 The query returned one Organization record named `EPIC OrgFarm` with
 `IsSandbox = false`. No credentials or tokens were recorded. Exercise setup
 and data library readiness have not yet been verified.
+
+### ex1-task1: create the data library
+
+On 2026-09-19, checked the library list (HTTP 200, no existing libraries), then
+executed the committed `data-library.json` creation request. Salesforce returned
+HTTP 201 with library ID `1JDgL000009JgcfWAC` and status `IN_PROGRESS`.
+The response confirmed `Title` and `Summary` as identifying fields and
+`Answer__c`, `Detail__c`, `Question__c` as content fields, with no category or
+public-only restriction. A subsequent status request returned HTTP 200 and
+`IN_PROGRESS`. Creation is complete; `READY` must be verified before agent use.
 
 ## First task: create the data library
 

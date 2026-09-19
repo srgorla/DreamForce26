@@ -60,6 +60,8 @@ do not call the file-library indexing endpoint.
 
 ## Current status
 
-Configuration generated and field names checked against the org. The creation
-request has not been executed, and server-side creation and readiness remain
-unverified. No org configuration was changed during generation.
+Created in `DF26_Service_Cloud_Assistant_Dynamic_Plans` on 2026-09-19 using the
+committed JSON request. The prior library list was empty. Creation returned
+HTTP 201 and library ID `1JDgL000009JgcfWAC`; the response confirmed all configured
+field selections. A subsequent status check returned HTTP 200 and `IN_PROGRESS`.
+Provisioning readiness is pending. Do not repeat the creation request in this org.
