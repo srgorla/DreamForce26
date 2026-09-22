@@ -1,0 +1,15 @@
+{
+  "masterLabel": "Agentforce Service Assistant Library",
+  "developerName": "Agentforce_Service_Assistant_Library",
+  "description": "The Agentforce Data Library stores resort knowledge articles for the Service Assistant to instantly retrieve during guest interactions.",
+  "groundingSource": {
+    "sourceType": "KNOWLEDGE",
+    "knowledgeConfig": {
+      "primaryIndexField1": "Title",
+      "primaryIndexField2": "Summary",
+      "contentFields": ["Answer__c", "Detail__c", "Question__c"],
+      "isRestrictToPublicArticle": false,
+      "isDataCategoryRuleEnabled": false
+    }
+  }
+}
