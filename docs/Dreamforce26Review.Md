@@ -79,11 +79,11 @@ df4270a
 
 
 
-# 6 Fix Salesforce Vulnerabilities
+# 7 Fix Salesforce Vulnerabilities
 epic.bbe131382feb@orgfarm.salesforce.com
 https://sfdc.co/df4272solutionguide
 
-# 7 Multi-Agent Orchestration
+# 8 Multi-Agent Orchestration
 epic.38d950de7a29@orgfarm.salesforce.com
 
 
